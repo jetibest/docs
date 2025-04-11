@@ -7,6 +7,8 @@ import (
 	"flag"
 	"fmt"
 	"io"
+	"errors"
+	"io/fs"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -23,6 +25,7 @@ var (
 
 func main() {
 	storageDir := flag.String("storage", "./public_html/content", "Path to storage directory (containing your markdown and media files)")
+	// NOTE: storage directory must have a symlink at ./public_html/content pointing at it, if the directory is customized!
 	authTokensFile := flag.String("authtokens", "./auth_tokens.txt", "File containing valid auth tokens, one per line")
 	port := flag.String("port", "8080", "Port to run the server on")
 	flag.Parse()
@@ -38,6 +41,11 @@ func main() {
 		fmt.Println("Error determining absolute path for storage:", err)
 		os.Exit(1)
 	}
+	
+	if err = os.Mkdir(storagePath, 0755); err != nil && !errors.Is(err, fs.ErrExist) {
+		fmt.Println("Failed to create storage path (%s):", storagePath, err)
+		os.Exit(1)
+	}
 
 	// Load auth tokens if provided.
 	if *authTokensFile != "" {
@@ -46,6 +54,8 @@ func main() {
 			os.Exit(1)
 		}
 	}
+	
+	
 	/*
 	// Parse command-line arguments.
 	authCred := flag.String("auth", "", "Credentials in user:pass format for basic authentication")
