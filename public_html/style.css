@@ -1,0 +1,218 @@
+/* style.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f8f8;
+}
+
+header {
+  background: #f5f5f5;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+#auth-controls {
+  display: flex;
+  align-items: center;
+}
+
+#auth-controls span {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+#search-container {
+  margin-top: 10px;
+}
+
+#search-box {
+  width: 300px;
+  padding: 6px;
+  font-size: 1em;
+}
+
+#breadcrumbs {
+  padding: 10px 20px;
+  background: #eee;
+  font-size: 0.9em;
+}
+
+#breadcrumbs a {
+  color: #007acc;
+  text-decoration: none;
+  margin-right: 5px;
+}
+
+#container {
+  display: flex;
+  height: calc(100vh - 120px);
+}
+
+#sidebar {
+  width: 250px;
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+#sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar li {
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#sidebar li:hover {
+  background: #444;
+}
+
+.indent-0 {
+  padding-left: 10px;
+}
+
+.indent-1 {
+  padding-left: 20px;
+  background: #2a2a2a;
+}
+
+.indent-2 {
+  padding-left: 30px;
+  background: #252525;
+}
+
+#content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #fff;
+  border-left: 1px solid #ddd;
+}
+
+#page-view, #editor-container {
+  padding: 20px;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+.editor-buttons {
+  margin-top: 10px;
+}
+
+.editor-buttons button {
+  margin-right: 10px;
+  padding: 8px 12px;
+  font-size: 1em;
+}
+
+
+#sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Adjust sidebar list items for the expanded tree */
+#sidebar li {
+  padding: 8px 10px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+/* Highlighted (active) sidebar items */
+#sidebar li.active {
+  background: #555;
+  font-weight: bold;
+}
+
+/* Nested subtree container (for expanded branch) */
+.subtree {
+  margin-left: 15px;
+}
+
+/* File manager section shown in directory view */
+#file-manager {
+  padding: 10px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+}
+
+/* Style for file manager’s heading */
+#file-manager h3, #file-manager h4 {
+  margin: 0 0 10px 0;
+}
+
+/* Adjust the delete button appearance in file manager */
+#file-manager button {
+  margin-left: 10px;
+  font-size: 0.9em;
+  padding: 2px 6px;
+}
+
+/* Additional adjustments for the sidebar: different background for deeper levels */
+.indent-0 {
+  padding-left: 10px;
+}
+.indent-1 {
+  padding-left: 20px;
+  background: #2a2a2a;
+}
+.indent-2 {
+  padding-left: 30px;
+  background: #252525;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#dir-controls button {
+  margin-right: 5px;
+}
+
+
+/* --- File Upload & Drop Area Styles --- */
+.drop-area {
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  background-color: #fafafa;
+  margin-top: 10px;
+}
+.drop-area.dragover {
+  background-color: #e0f7ff;
+}
+
+#uploaded-files ul {
+  list-style: none;
+  padding: 0;
+}
+#uploaded-files li {
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+}
+.upload-btn {
+  margin-left: 5px;
+  padding: 2px 6px;
+  font-size: 0.9em;
+}

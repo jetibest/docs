@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Docs CMS</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- External Libraries without integrity attributes -->
+  <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.12/mode/markdown/markdown.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Docs CMS</h1>
+    <div id="auth-controls">
+      <span id="auth-status">Not logged in</span>
+      <button id="loginBtn" onclick="doLogin()">Login</button>
+      <button id="logoutBtn" onclick="doLogout()" style="display:none;">Logout</button>
+    </div>
+    <div id="search-container">
+      <input type="text" id="search-box" placeholder="Search..." />
+      <button onclick="doSearch()">Search</button>
+    </div>
+  </header>
+  <nav id="breadcrumbs">
+    <!-- Breadcrumbs will be updated dynamically -->
+  </nav>
+  <div id="container">
+    <aside id="sidebar">
+      <!-- Sidebar navigation loaded dynamically -->
+    </aside>
+    <main id="content">
+      <!-- Controls for directory view -->
+      <!-- Directory controls (shown when viewing a directory) -->
+      <div id="dir-controls" style="display:none; margin-bottom:10px;">
+        <button onclick="createNewPage()">New Page</button>
+        <button onclick="createNewDirectory()">New Directory</button>
+        <button id="deleteDirBtn" onclick="deleteDirectory()" disabled>Delete Directory</button>
+      </div>
+      <!-- The page view area -->
+      <div id="page-view">
+        <p>Select a Markdown (.md) file from the sidebar or create a new page.</p>
+        <div id="page-actions"></div>
+      </div>
+      <!-- Editor section (hidden by default) -->
+      <div id="editor-container" style="display: none;">
+        <textarea id="editor"></textarea>
+        <div class="editor-buttons">
+          <button onclick="savePage()">Save</button>
+          <button onclick="cancelEdit()">Cancel</button>
+        </div>
+        <div id="dir-files">
+          <!-- Files in the current directory for file management -->
+        </div>
+      </div>
+      <!-- Upload and Uploaded Files Section -->
+      <div id="upload-container" style="margin-top:20px; display:none;">
+        <h3>Uploaded Files</h3>
+        <div id="uploaded-files"></div>
+        <div id="upload-drop-area" class="drop-area">
+          <p>Drag &amp; drop files here or click to select files</p>
+          <input type="file" id="fileInput" multiple style="display:none;" onchange="handleFileSelect(event)" />
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
